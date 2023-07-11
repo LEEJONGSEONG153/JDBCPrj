@@ -4,10 +4,15 @@ import java.sql.*;
 
 public class Program2 {
     public static void main(String[] args) throws Exception {
+        String title = "title";
+        String writerId = "newlec";
+        String content = "dsfdsfdsvsdfsfvsdv";
+        String files = "";
+
         Class.forName("org.mariadb.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb","lee","whdtjd89!");
         //Statement st = con.createStatement();
-        String sql = "INSERT INTO studydb.notice" +
+        String sql = "INSERT INTO notice" +
                 "(TITLE" +
                 ", WRITER_ID" +
                 ", CONTENT" +
@@ -16,10 +21,6 @@ public class Program2 {
                 "(?,?,?,?)";
         PreparedStatement st = con.prepareStatement(sql);
 
-        String title = "title";
-        String writerId = "newlec";
-        String content = "dsfdsfdsvsdfsfvsdv";
-        String files = "";
 
         st.setString(1,title);
         st.setString(2,writerId);
